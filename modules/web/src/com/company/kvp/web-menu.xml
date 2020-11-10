@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-kvp" insertBefore="administration" caption="mainMsg://menu_config.application-kvp">
+        <item screen="kvp_Speaker.browse" caption="mainMsg://menu_config.kvp_Speaker.browse"/>
+        <item screen="kvp_Session.browse" caption="mainMsg://menu_config.kvp_Session.browse"/>
+    </menu>
+</menu-config>

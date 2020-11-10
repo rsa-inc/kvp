@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://sessionEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.kvp.web.screens.session">
+    <data>
+        <instance id="sessionDc"
+                  class="com.company.kvp.entity.Session">
+            <view extends="_local">
+                <property name="speaker" view="_minimal"/>
+            </view>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="sessionDc">
+            <column width="350px">
+                <textField id="topicField" property="topic"/>
+                <dateField id="startDateField" property="startDate"/>
+                <pickerField id="speakerField" property="speaker">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <textField id="durationField" property="duration"/>
+                <textField id="descriptionField" property="description"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

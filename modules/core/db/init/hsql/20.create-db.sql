@@ -1,0 +1,7 @@
+-- begin KVP_SESSION
+alter table KVP_SESSION add constraint FK_KVP_SESSION_ON_SPEAKER foreign key (SPEAKER_ID) references KVP_SPEAKER(ID)^
+create index IDX_KVP_SESSION_ON_SPEAKER on KVP_SESSION (SPEAKER_ID)^
+-- end KVP_SESSION
+-- begin KVP_SPEAKER
+create index IDX_KVP_SPEAKER_LAST_NAME on KVP_SPEAKER (LAST_NAME)^
+-- end KVP_SPEAKER

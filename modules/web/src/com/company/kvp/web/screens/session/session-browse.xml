@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://sessionBrowse.caption"
+        focusComponent="sessionsTable"
+        messagesPack="com.company.kvp.web.screens.session">
+    <data readOnly="true">
+        <collection id="sessionsDc"
+                    class="com.company.kvp.entity.Session">
+            <view extends="_local">
+                <property name="speaker" view="_minimal"/>
+            </view>
+            <loader id="sessionsDl">
+                <query>
+                    <![CDATA[select e from kvp_Session e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="sessionsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="sessionsTable"
+                dataLoader="sessionsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="sessionsTable"
+                    width="100%"
+                    dataContainer="sessionsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="topic"/>
+                <column id="startDate"/>
+                <column id="speaker"/>
+                <column id="duration"/>
+                <column id="description"/>
+                <column id="endDate"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="sessionsTable.create"/>
+                <button id="editBtn" action="sessionsTable.edit"/>
+                <button id="removeBtn" action="sessionsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
