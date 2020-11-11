@@ -1,0 +1,21 @@
+@startuml
+Title Started Program
+
+class Session {
+topic : String
+startDate : LocalDateTime
+endDate : LocalDateTime
+speaker <<FK>>
+duration : Integer
+description :String
+}
+
+class Speaker {
+firstName : String
+lastName : String
+email : String
+}
+
+Session --left> Speaker
+
+@enduml
